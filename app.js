@@ -63,6 +63,7 @@ $("parse").onclick = async () => {
     $("end").value = e.fin;
     $("alert").value = String(e.aviso_min);
     $("notes").value = e.notas;
+    $("cat").value = e.categoria || "otro";
     $("doubt").hidden = !e.duda;
     $("doubt").textContent = e.duda ? "Ojo: " + e.duda : "";
     $("preview").hidden = false;
@@ -82,6 +83,7 @@ $("create").onclick = async () => {
       fin: $("end").value,
       aviso_min: Number($("alert").value),
       notas: $("notes").value.trim(),
+      categoria: $("cat").value,
     });
     $("preview").hidden = true; $("text").value = "";
     say("Listo, evento creado.", "ok");
